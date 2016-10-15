@@ -8,7 +8,7 @@ template<typename T>
 std::size_t partition(T arr[], std::size_t left, std::size_t right) {
     std::size_t ptr_left= left;
     std::size_t ptr_right = right;
-    std::size_t piv = arr[right];    
+    const T piv = arr[right];    
 
     while (ptr_left < ptr_right) {
         while (arr[ptr_left] < piv) {
@@ -45,7 +45,7 @@ void quick_sort(T arr[], std::size_t left, std::size_t right) {
 
 template<typename T>
 void print(T arr[], std::size_t size) {
-    for (int i = 0; i < size; ++i) {
+    for (std::size_t i = 0; i < size; ++i) {
         std::cout << arr[i] << ' ';
     }
 

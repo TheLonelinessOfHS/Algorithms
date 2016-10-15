@@ -5,8 +5,8 @@
 
 template<typename T>
 void bubble_sort(T arr[], std::size_t size) {
-    for (int i = 0; i < size - 2; ++i) {
-        for (int j = 0; j < size - 2; ++j) {
+    for (std::size_t i = 0; i < size - 2; ++i) {
+        for (std::size_t j = 0; j < size - 2; ++j) {
             if (arr[j] > arr[j + 1]) {
                 std::swap(arr[j], arr[j + 1]);
             }
@@ -18,7 +18,7 @@ void bubble_sort(T arr[], std::size_t size) {
 
 template<typename T>
 void print(T arr[], std::size_t size) {
-    for (int i = 0; i < size; ++i) {
+    for (std::size_t i = 0; i < size; ++i) {
         std::cout << arr[i] << ' ';
     }
 
