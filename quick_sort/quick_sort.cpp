@@ -30,7 +30,7 @@ std::size_t partition(T arr[], std::size_t left, std::size_t right) {
 }
 
 template<typename T>
-void quick_sort(T arr[], std::size_t left, std::size_t right) {
+void quick_sort(T arr, std::size_t left, std::size_t right) {
     if (left < right) {
         std::size_t pos = partition(arr, left, right);
 
@@ -43,10 +43,10 @@ void quick_sort(T arr[], std::size_t left, std::size_t right) {
     }
 }
 
-template<typename T>
-void print(T arr[], std::size_t size) {
-    for (std::size_t i = 0; i < size; ++i) {
-        std::cout << arr[i] << ' ';
+template<typename T, std::size_t N>
+void print(T (&arr)[N]) {
+    for (auto& v : arr) {
+        std::cout << v << ' ';
     }
 
     std::cout << std::endl;
@@ -55,10 +55,10 @@ void print(T arr[], std::size_t size) {
 
 int main() {
     int arr[] = {233, 5124, 121, 152134, 1245151, 23623, 12315, 635134, 123415, 1412512};
-    print(arr, std::extent<decltype(arr)>::value);
+    print(arr);
 
     quick_sort(arr, 0, std::extent<decltype(arr)>::value - 1);
 
-    print(arr, std::extent<decltype(arr)>::value);
+    print(arr);
     return 0;
 }

@@ -3,10 +3,10 @@
 #include <iostream>
 
 
-template<typename T>
-void bubble_sort(T arr[], std::size_t size) {
-    for (std::size_t i = 0; i < size - 2; ++i) {
-        for (std::size_t j = 0; j < size - 2; ++j) {
+template<typename T, std::size_t N>
+void bubble_sort(T (&arr)[N]) {
+    for (std::size_t i = 0; i < N - 2; ++i) {
+        for (std::size_t j = 0; j < N - 2; ++j) {
             if (arr[j] > arr[j + 1]) {
                 std::swap(arr[j], arr[j + 1]);
             }
@@ -16,10 +16,10 @@ void bubble_sort(T arr[], std::size_t size) {
     return;
 }
 
-template<typename T>
-void print(T arr[], std::size_t size) {
-    for (std::size_t i = 0; i < size; ++i) {
-        std::cout << arr[i] << ' ';
+template<typename T, std::size_t N>
+void print(T (&arr)[N]) {
+    for (auto& v : arr) {
+        std::cout << v << ' ';
     }
 
     std::cout << std::endl;
@@ -28,10 +28,10 @@ void print(T arr[], std::size_t size) {
 
 int main() {
     int arr[] = {233, 5124, 121, 152134, 1245151, 23623, 12315, 635134, 123415, 1412512};
-    print(arr, std::extent<decltype(arr)>::value);
+    print(arr);
 
-    bubble_sort(arr, std::extent<decltype(arr)>::value);
+    bubble_sort(arr);
 
-    print(arr, std::extent<decltype(arr)>::value);
+    print(arr);
     return 0;
 }
